@@ -5,7 +5,7 @@ const progressParagraph = document.querySelector(".word-in-progress");
 const remainingGuessesElement = document.querySelector(".remaining");
 const displayRemainingGuess = document.querySelector(".remaining span");
 const message = document.querySelector(".message");
-const playAgain = document.querySelector(".play-again hide");
+const playAgain = document.querySelector(".play-again");
 
 
 
