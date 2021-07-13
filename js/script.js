@@ -70,11 +70,11 @@ const playerInput = function (input){
 
     const acceptedLetter = /[a-zA-Z]/;
     if (input.length === 0){
-        message.innerText = "Please enter a letter"
+        message.innerText = "Please enter a letter";
     }else if(input.length>1){
-        message.innerText = "please enter one letter only"
+        message.innerText = "please enter one letter only";
     }else if (!input.match(acceptedLetter)){
-        message.innerText =  "Please enter a valid letter A-Z"
+        message.innerText =  "Please enter a valid letter A-Z";
     } else {
         return input;
     }
@@ -116,31 +116,32 @@ const updateWordInProgress = function (guessedLetters){
 
     const revealWord = [];
     for (const letter of wordArray) {
-    if (guessedLetters.includes(letter)){
+        if (guessedLetters.includes(letter)){
         revealWord.push(letter.toUpperCase());
-    }else{
-    revealWord.push("●");
+        }else{
+        revealWord.push("●");
 
+        }
     }
-}
 
 progressParagraph.innerText = revealWord.join("");
 checkWin();
 
 };
+
 const updateGuessesRemaining = function (guess){
     const upperWord = word.toUpperCase();
     if (!upperWord.includes(guess)){
-    message.innerText = `Sorry, the word has no ${guess}`;
-    remainingGuesses -=1;
+        message.innerText = `Sorry, the word has no ${guess}`;
+        remainingGuesses -=1;
     }else{
         message.innerText = `Good guess! The word has the letter ${guess}`;
     }
     if (remainingGuesses === 0) {
-          message.innerHTML = `Game over. the word was <span class = "highlight" ${word}</span>`;
-          startOver();
-    } else if (remainingGuesses === 1) {
-        displayRemainingGuess.innerText  = `${remainingGuesses} guess`;
+     message.innerHTML = `Game over. the word was <span class = "highlight" >${word}</span>`;
+     startOver();
+    }else if (remainingGuesses === 1) {
+    displayRemainingGuess.innerText  = `${remainingGuesses} guess`;
 
     } else {
        displayRemainingGuess.innerText = `${remainingGuesses} guesses`;
@@ -152,7 +153,7 @@ const updateGuessesRemaining = function (guess){
 const checkWin = function (){
     if(word.toUpperCase() === progressParagraph.innerText){
         message.classList.add("win");
-        message.innerHTML = `<p class = highllight">You guessed the correct word!!!!!!YAY!!!</p>`;
+        message.innerHTML = `<p class = "highlight">You guessed the correct word!!!!!!YAY!!!</p>`;
 
        startOver();
 
@@ -164,7 +165,7 @@ const checkWin = function (){
 const startOver = function(){
     guessButton.classList.add("hide");
     remainingGuessesElement.classList.add("hide");
-    displayRemainingGuess.classList.add("hide");
+    guessedLettersElement.classList.add("hide");
     playAgain.classList.remove("hide");
 
 
