@@ -88,10 +88,10 @@ const makeGuess = function (guess){
     } else {
 
         guessedLetters.push(guess);
-        showGuessedLetters();
         console.log(guessedLetters);
-        updateWordInProgress(guessedLetters);
         updateGuessesRemaining(guess);
+        showGuessedLetters();
+        updateWordInProgress(guessedLetters);
         
     }
 };
